@@ -12,9 +12,9 @@ public interface SubCategoryService {
 
     ResponseEntity<Page<SubCategoria>> getAll(Pageable paginacao);
     ResponseEntity<SubCategoria> save(SubCategoriaDTO subDto);
-    ResponseEntity<SubCategoria> updateSubCategoria(Integer id, SubCategoriaDTO subCatDto);
+    ResponseEntity<SubCategoria> updateSubCategory(Integer id, SubCategoriaDTO subCatDto);
     ResponseEntity<SubCategoria> delete(Integer id);
-    ResponseEntity<List<SubCategoria>> findByCategoriaId(Integer id);
+    ResponseEntity<List<SubCategoria>> findByCategoryById(Integer id);
 
 
 }
