@@ -7,13 +7,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 
 public interface CategoryService {
-    ResponseEntity<CategoriaDTO> salvar(CategoriaDTO catDto);
+    ResponseEntity<Categoria> save(CategoriaDTO catDto);
 
-    ResponseEntity<Categoria> buscarPorCategoriaId(Integer id);
+    ResponseEntity<Categoria> getCategoryById(Long id);
 
-    ResponseEntity<Page<Categoria>> listarTodasCategorias(Pageable paginacao);
+    ResponseEntity<Page<Categoria>> listAllCategories(Pageable paginacao);
 
-    ResponseEntity<CategoriaDTO> alterarCategoria(Integer id, CategoriaDTO categoria);
+    ResponseEntity<CategoriaDTO> updateCategory(Long id, CategoriaDTO categoria);
 
-    ResponseEntity<Categoria> excluir(Integer id);
+    ResponseEntity<Categoria> delete(Long id);
 }

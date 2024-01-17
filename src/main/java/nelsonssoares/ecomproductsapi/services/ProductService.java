@@ -8,15 +8,15 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface ProductService {
-    ResponseEntity<Produto> salvar(ProdutoDTO prodDto);
+    ResponseEntity<Produto> save(ProdutoDTO prodDto);
 
-    ResponseEntity<Produto> buscarPorId(Integer id);
+    ResponseEntity<Produto> getById(Integer id);
 
-    ResponseEntity<List<ProdutoDTO>> buscarTodos(Pageable paginacao);
+    ResponseEntity<List<ProdutoDTO>> getAllProducts(Pageable paginacao);
 
-    ResponseEntity<List<ProdutoDTO>> buscarPorNome(String nome);
+    ResponseEntity<List<ProdutoDTO>> getByName(String nome);
 
-    ResponseEntity<Produto> atualizarProduto(Integer id, ProdutoDTO prodDto);
+    ResponseEntity<Produto> updateProduct(Integer id, ProdutoDTO prodDto);
 
-    ResponseEntity<Produto> deletarProduto(Integer id);
+    ResponseEntity<Produto> deleteProduct(Integer id);
 }
