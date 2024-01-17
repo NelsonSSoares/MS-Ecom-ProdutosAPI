@@ -21,7 +21,7 @@ import static nelsonssoares.ecomproductsapi.commons.constants.ControllersConstan
 @Tag(name = API_TAG, description = API_DESCRIPTION)
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value = API_BASE_URL, produces = API_PRODUCES)
+@RequestMapping(value = CATEGORY, produces = API_PRODUCES)
 public class CategoryController {
 
     private final CategoryService categoryService;
@@ -100,7 +100,7 @@ public class CategoryController {
             @ApiResponse(responseCode = "422", description = "Dados de requisição inválido"),
             @ApiResponse(responseCode = "500", description = "Erro no servidor!"),
     })
-    @DeleteMapping("/{id}")
+    @DeleteMapping(CATEGORY_ID)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public ResponseEntity<Categoria> deleteCategoria(Long id) {
 

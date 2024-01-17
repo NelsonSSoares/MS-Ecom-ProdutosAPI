@@ -1,12 +1,18 @@
 package nelsonssoares.ecomproductsapi.domain.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Entity
+@Table(name = "subcategoria")
 public class SubCategoria {
 
     @Id
@@ -22,5 +28,5 @@ public class SubCategoria {
 
     @NotNull(message = "ID da " +
             "Categoria deve ser informada")
-    private Integer categoriaId;
+    private Long categoriaId;
 }
