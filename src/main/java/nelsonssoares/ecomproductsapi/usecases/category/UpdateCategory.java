@@ -18,7 +18,7 @@ public class UpdateCategory {
     private final ObjectMapper objectMapper;
 
     @Transactional
-    public CategoriaDTO executeUpdateCategory(Long id, CategoriaDTO nomeCategoria) {
+    public CategoriaDTO executeUpdateCategory(Integer id, CategoriaDTO nomeCategoria) {
 
         Optional<Categoria> categoria = categoriaRepository.findById(id);
         if(categoria.isPresent()){

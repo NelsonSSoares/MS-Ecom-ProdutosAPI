@@ -18,7 +18,7 @@ public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @NotNull(message = "Categoria deve ser informada")
     @Column(name = "categoria_id")

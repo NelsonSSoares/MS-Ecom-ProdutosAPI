@@ -4,7 +4,9 @@ package nelsonssoares.ecomproductsapi.usecases.subcategory;
 import lombok.RequiredArgsConstructor;
 import nelsonssoares.ecomproductsapi.domain.entities.SubCategoria;
 import nelsonssoares.ecomproductsapi.domain.repository.SubCategoriaRepository;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,10 +16,12 @@ import java.util.List;
 public class GetAllSubCategories {
     private final SubCategoriaRepository subCategoriaRepository;
 
-    public List<SubCategoria> executeFindAllSubCategories(Pageable paginacao) {
+    public Page<SubCategoria> executeFindAllSubCategories(Pageable paginacao) {
 
-        List<SubCategoria> subCategorias = subCategoriaRepository.findAll(paginacao).toList();
+        Page<SubCategoria> subCategorias = subCategoriaRepository.findAll(paginacao);
 
         return subCategorias;
     }
+
+
 }

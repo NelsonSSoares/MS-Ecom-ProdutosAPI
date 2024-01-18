@@ -9,11 +9,11 @@ import org.springframework.http.ResponseEntity;
 public interface CategoryService {
     ResponseEntity<Categoria> save(CategoriaDTO catDto);
 
-    ResponseEntity<Categoria> getCategoryById(Long id);
+    ResponseEntity<Categoria> getCategoryById(Integer id);
 
     ResponseEntity<Page<Categoria>> listAllCategories(Pageable paginacao);
 
-    ResponseEntity<CategoriaDTO> updateCategory(Long id, CategoriaDTO categoria);
+    ResponseEntity<CategoriaDTO> updateCategory(Integer id, CategoriaDTO categoria);
 
-    ResponseEntity<Categoria> delete(Long id);
+    ResponseEntity<Categoria> delete(Integer id);
 }

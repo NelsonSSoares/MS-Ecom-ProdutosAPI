@@ -13,7 +13,7 @@ public class GetCategoryById {
 
     private final CategoriaRepository categoriaRepository;
 
-    public Categoria executeFindCategoryById(Long id) {
+    public Categoria executeFindCategoryById(Integer id) {
         Optional<Categoria> categoria = categoriaRepository.findById(id);
         return categoria.orElse(null);
     }
