@@ -2,6 +2,7 @@ package nelsonssoares.ecomproductsapi.services;
 
 import nelsonssoares.ecomproductsapi.domain.dtos.ProdutoDTO;
 import nelsonssoares.ecomproductsapi.domain.entities.Produto;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 
@@ -12,7 +13,7 @@ public interface ProductService {
 
     ResponseEntity<Produto> getById(Integer id);
 
-    ResponseEntity<List<ProdutoDTO>> getAllProducts(Pageable paginacao);
+    ResponseEntity<Page<ProdutoDTO>> getAllProducts(Pageable paginacao);
 
     ResponseEntity<List<ProdutoDTO>> getByName(String nome);
 

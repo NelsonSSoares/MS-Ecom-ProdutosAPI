@@ -9,6 +9,7 @@ import nelsonssoares.ecomproductsapi.domain.repository.SubCategoriaRepository;
 import nelsonssoares.ecomproductsapi.usecases.category.GetCategoryById;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
@@ -19,6 +20,8 @@ public class SaveSubCategory {
     private final SubCategoriaRepository subCategoriaRepository;
     private final GetCategoryById getCategoryById;
     private final ObjectMapper objectMapper;
+
+    @Transactional
     public SubCategoria executeSaveSubCategory(SubCategoriaDTO subCategoriaDto) {
 
 

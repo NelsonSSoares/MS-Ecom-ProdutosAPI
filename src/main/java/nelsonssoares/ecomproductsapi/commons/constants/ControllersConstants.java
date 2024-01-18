@@ -18,5 +18,6 @@ public class ControllersConstants {
     public static final String SUBCATEGORY_ID = "/{id}";
 
     // PRODUCT ENDPOINTS
-
+    public static final String ID = "/{id}";
+    public static final String NAME = "name/{name}";
 }

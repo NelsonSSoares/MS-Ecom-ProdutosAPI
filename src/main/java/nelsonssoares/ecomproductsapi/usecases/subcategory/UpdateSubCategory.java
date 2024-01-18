@@ -5,6 +5,7 @@ import nelsonssoares.ecomproductsapi.domain.dtos.SubCategoriaDTO;
 import nelsonssoares.ecomproductsapi.domain.entities.SubCategoria;
 import nelsonssoares.ecomproductsapi.domain.repository.SubCategoriaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -12,6 +13,7 @@ public class UpdateSubCategory {
 
     private final SubCategoriaRepository subCategoriaRepository;
 
+    @Transactional
     public SubCategoria executeUpdateSubCategory(Integer id, SubCategoriaDTO subCategoria) {
 
         SubCategoria subCategoriaAtualizada = subCategoriaRepository.findById(id).orElse(null);
