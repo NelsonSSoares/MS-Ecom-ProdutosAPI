@@ -10,8 +10,9 @@ public class DeleteSubCategory {
 
     private final SubCategoriaRepository subCategoriaRepository;
 
-    public void executeDeleteSubCategory(Long id) {
+    public boolean executeDeleteSubCategory(Integer id) {
 
         subCategoriaRepository.deleteById(id);
+        return true;
     }
 }

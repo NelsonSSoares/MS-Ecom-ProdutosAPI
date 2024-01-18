@@ -15,7 +15,7 @@ public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @NotEmpty(message = "Nome da categoria deve ser informado")
     @Column(name = "nome_categoria")

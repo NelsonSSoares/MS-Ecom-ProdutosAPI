@@ -29,7 +29,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public ResponseEntity<Categoria> getCategoryById(Long id) {
+    public ResponseEntity<Categoria> getCategoryById(Integer id) {
 
         Categoria categoria = getCategoryById.executeFindCategoryById(id);
 
@@ -43,7 +43,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public ResponseEntity<CategoriaDTO> updateCategory(Long id, CategoriaDTO categoria) {
+    public ResponseEntity<CategoriaDTO> updateCategory(Integer id, CategoriaDTO categoria) {
 
         CategoriaDTO categoriaAtualizada = updateCategory.executeUpdateCategory(id, categoria);
 
@@ -51,7 +51,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public ResponseEntity<Categoria> delete(Long id) {
+    public ResponseEntity<Categoria> delete(Integer id) {
 
         deleteCategory.executeDeleteCategory(id);
 

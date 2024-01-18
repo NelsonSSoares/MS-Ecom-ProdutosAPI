@@ -12,7 +12,7 @@ public class UpdateSubCategory {
 
     private final SubCategoriaRepository subCategoriaRepository;
 
-    public SubCategoria executeUpdateSubCategory(Long id, SubCategoriaDTO subCategoria) {
+    public SubCategoria executeUpdateSubCategory(Integer id, SubCategoriaDTO subCategoria) {
 
         SubCategoria subCategoriaAtualizada = subCategoriaRepository.findById(id).orElse(null);
 

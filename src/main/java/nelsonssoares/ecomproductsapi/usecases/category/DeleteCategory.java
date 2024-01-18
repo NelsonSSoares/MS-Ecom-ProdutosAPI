@@ -18,7 +18,7 @@ public class DeleteCategory {
 
     private final CategoriaRepository categoriaRepository;
     @Transactional
-    public void executeDeleteCategory(Long id) {
+    public void executeDeleteCategory(Integer id) {
         Optional<Categoria> categoria = categoriaRepository.findById(id);
         if(categoria.isEmpty()){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Categoria não encontrada");

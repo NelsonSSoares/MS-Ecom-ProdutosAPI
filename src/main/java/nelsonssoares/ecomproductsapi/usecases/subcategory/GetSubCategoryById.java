@@ -12,7 +12,7 @@ public class GetSubCategoryById {
 
     private final SubCategoriaRepository subCategoriaRepository;
 
-    public SubCategoria executeFindSubCategoryById(Long id) {
+    public SubCategoria executeFindSubCategoryById(Integer id) {
 
         return subCategoriaRepository.findById(id).orElse(null);
     }

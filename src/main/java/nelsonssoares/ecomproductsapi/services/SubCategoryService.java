@@ -14,7 +14,7 @@ public interface SubCategoryService {
     ResponseEntity<SubCategoria> save(SubCategoriaDTO subDto);
     ResponseEntity<SubCategoria> updateSubCategory(Integer id, SubCategoriaDTO subCatDto);
     ResponseEntity<SubCategoria> delete(Integer id);
-    ResponseEntity<List<SubCategoria>> findByCategoryById(Integer id);
+    ResponseEntity<SubCategoria> findBySubCategoryById(Integer id);
 
 
 }

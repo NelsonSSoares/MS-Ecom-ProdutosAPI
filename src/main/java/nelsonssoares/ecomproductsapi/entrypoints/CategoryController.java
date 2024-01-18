@@ -69,7 +69,7 @@ public class CategoryController {
             @ApiResponse(responseCode = "500", description = "Erro no servidor!"),
     })
     @GetMapping(CATEGORY_ID)
-    public ResponseEntity<Categoria> getById(@PathVariable("id") Long id){
+    public ResponseEntity<Categoria> getById(@PathVariable("id") Integer id){
         return categoryService.getCategoryById(id);
     }
 
@@ -85,7 +85,7 @@ public class CategoryController {
             @ApiResponse(responseCode = "500", description = "Erro no servidor!"),
     })
     @PutMapping(CATEGORY_ID)
-    public ResponseEntity<CategoriaDTO> updateCategoria(@PathVariable("id") Long id, @RequestBody @Valid CategoriaDTO categoria){
+    public ResponseEntity<CategoriaDTO> updateCategoria(@PathVariable("id") Integer id, @RequestBody @Valid CategoriaDTO categoria){
 
         return categoryService.updateCategory(id, categoria);
     }
@@ -102,7 +102,7 @@ public class CategoryController {
     })
     @DeleteMapping(CATEGORY_ID)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public ResponseEntity<Categoria> deleteCategoria(Long id) {
+    public ResponseEntity<Categoria> deleteCategoria(Integer id) {
 
         return  categoryService.delete(id);
     }

@@ -17,7 +17,7 @@ public class SubCategoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @NotEmpty(message = "Nome da subcategoria deve ser informado")
     @Column(name = "nome_subcategoria")
@@ -28,5 +28,5 @@ public class SubCategoria {
 
     @NotNull(message = "ID da " +
             "Categoria deve ser informada")
-    private Long categoriaId;
+    private Integer categoriaId;
 }
