@@ -14,12 +14,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class SaveProduct {
+public class UpdateProduct {
 
     private final ProdutoRepository produtoRepository;
     private final GetCategoryById getCategoryById;
@@ -27,23 +26,29 @@ public class SaveProduct {
     private final ObjectMapper objectMapper;
 
     @Transactional
-    public Produto executeSaveProduct(ProdutoDTO produtoDto) {
-        Optional<Categoria> categoria = Optional.ofNullable(getCategoryById.executeFindCategoryById(produtoDto.categoriaId()));
-        if (categoria.isEmpty()) {
+    public Produto executeUpadteProduct(Integer id, ProdutoDTO proDto){
+        Produto produto = produtoRepository.findById(id).orElse(null);
+        if(produto == null){
+            return null;
+        }
+        Optional<Categoria> categoria = Optional.ofNullable(getCategoryById.executeFindCategoryById(proDto.categoriaId()));
+
+        if(categoria.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Categoria não encontrada");
         }
 
-        Optional<SubCategoria> subCategoria = Optional.ofNullable(getSubCategoryById.executeFindSubCategoryById(produtoDto.subCategoriaId()));
-        if (subCategoria.isEmpty()) {
+        Optional<SubCategoria> subCategoria = Optional.ofNullable(getSubCategoryById.executeFindSubCategoryById(proDto.subCategoriaId()));
+
+        if(subCategoria.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "SubCategoria não encontrada");
         }
 
-        Produto produto = objectMapper.convertValue(produtoDto, Produto.class);
-        produto.setDataCadastro(LocalDate.now());
-        produtoRepository.save(produto);
+        Produto produtoAtualizado = objectMapper.convertValue(proDto, Produto.class);
+        produtoAtualizado.setId(id);
+        produtoAtualizado.setDataCadastro(produto.getDataCadastro());
+        produtoRepository.save(produtoAtualizado);
+        return produtoAtualizado;
 
-        return produto;
     }
-
 
 }
