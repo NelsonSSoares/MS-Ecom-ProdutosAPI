@@ -15,7 +15,7 @@ public class GetAllCategories {
     private final CategoriaRepository categoriaRepository;
 
     public Page<Categoria> executeFindAllCategories(Pageable paginacao) {
-        return categoriaRepository.findAll(paginacao).getContent();
+        return categoriaRepository.findAll(paginacao);
     }
 
 }

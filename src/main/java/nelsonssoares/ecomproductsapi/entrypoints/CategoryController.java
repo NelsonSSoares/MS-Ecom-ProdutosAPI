@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import static nelsonssoares.ecomproductsapi.commons.constants.ControllersConstants.*;
 
-@Tag(name = API_TAG, description = API_DESCRIPTION)
+@Tag(name = API_TAG_CATEGORY, description = API_DESCRIPTION)
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(value = CATEGORY, produces = API_PRODUCES)
