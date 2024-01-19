@@ -17,9 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-@Tag(name = API_TAG, description = API_DESCRIPTION)
+@Tag(name = API_TAG_SUBCATEGORY, description = API_DESCRIPTION)
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(value = SUBCATEGORY, produces = API_PRODUCES)
@@ -44,19 +42,19 @@ public class SubCategoryController {
 
 
 
-    @Operation(summary = "Metodo para buscar subcategoria por ID de categoria", method = "POST")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Usuário cadstrado com sucesso!!"),
-            @ApiResponse(responseCode = "400", description = "Parametros inválidos!"),
-            @ApiResponse(responseCode = "401", description = "Usuário não autenticado!"),
-            @ApiResponse(responseCode = "403", description = "Não Autorizado!"),
-            @ApiResponse(responseCode = "422", description = "Dados de requisição inválido"),
-            @ApiResponse(responseCode = "500", description = "Erro ao atualizar usuário!"),
-    })
-    @GetMapping("cat/{id}")
-    public ResponseEntity<List<SubCategoria>>findByCategoria(@PathVariable("id") Integer id) {
-        return subCategoryService.findByCategoryById(id);
-    }
+//    @Operation(summary = "Metodo para buscar subcategoria por ID de categoria", method = "POST")
+//    @ApiResponses(value = {
+//            @ApiResponse(responseCode = "201", description = "Usuário cadstrado com sucesso!!"),
+//            @ApiResponse(responseCode = "400", description = "Parametros inválidos!"),
+//            @ApiResponse(responseCode = "401", description = "Usuário não autenticado!"),
+//            @ApiResponse(responseCode = "403", description = "Não Autorizado!"),
+//            @ApiResponse(responseCode = "422", description = "Dados de requisição inválido"),
+//            @ApiResponse(responseCode = "500", description = "Erro ao atualizar usuário!"),
+//    })
+//    @GetMapping("cat/{id}")
+//    public ResponseEntity<SubCategoria> findByCategoria(@PathVariable("id") Integer id) {
+//        return subCategoryService.findBySubCategoryById(id);
+//    }
 
 
 
@@ -86,7 +84,7 @@ public class SubCategoryController {
             @ApiResponse(responseCode = "422", description = "Dados de requisição inválido"),
             @ApiResponse(responseCode = "500", description = "Erro no servidor!"),
     })
-    @PutMapping("/{id}")
+    @PutMapping(SUBCATEGORY_ID)
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<SubCategoria> updateSubCategoria(@PathVariable("id") Integer id,@RequestBody SubCategoriaDTO subCatDto) {
         return subCategoryService.updateSubCategory(id, subCatDto);
@@ -103,7 +101,7 @@ public class SubCategoryController {
             @ApiResponse(responseCode = "422", description = "Dados de requisição inválido"),
             @ApiResponse(responseCode = "500", description = "Erro ao atualizar usuário!"),
     })
-    @DeleteMapping("/{id}")
+    @DeleteMapping(SUBCATEGORY_ID)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public ResponseEntity<SubCategoria> delete(@PathVariable("id") Integer id) {
         return subCategoryService.delete(id);

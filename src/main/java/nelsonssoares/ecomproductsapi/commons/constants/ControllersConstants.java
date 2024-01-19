@@ -10,10 +10,12 @@ public class ControllersConstants {
 
 
     // CATEGORY ENDPOINTS
+    public static final String API_TAG_CATEGORY = "Ecommerce - Categoria API";
     public static final String CATEGORY = API_BASE_URL + "/categoria";
     public static final String CATEGORY_ID = "/{id}";
 
     // SUBCATEGORY ENDPOINTS
+    public static final String API_TAG_SUBCATEGORY = "Ecommerce - Subcategoria API";
     public static final String SUBCATEGORY = API_BASE_URL + "/subcategoria";
     public static final String SUBCATEGORY_ID = "/{id}";
 
