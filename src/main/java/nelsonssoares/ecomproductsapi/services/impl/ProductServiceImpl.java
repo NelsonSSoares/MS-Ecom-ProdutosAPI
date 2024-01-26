@@ -53,7 +53,7 @@ public class ProductServiceImpl implements ProductService {
 
             List<ProdutoDTO> produtos = getProductsByName.executeGetProductsByName(nome);
 
-            return null;
+            return produtos.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(produtos);
         }
 
         @Override
