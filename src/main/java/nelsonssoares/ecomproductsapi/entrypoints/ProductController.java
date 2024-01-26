@@ -60,7 +60,7 @@ public class ProductController {
             @ApiResponse(responseCode = "500", description = "Erro ao buscar produto!")
     })
     @GetMapping(NAME)
-    public ResponseEntity<List<ProdutoDTO>> findByName(@PathVariable("name") String nome){
+    public ResponseEntity<List<ProdutoDTO>> findByName(@PathVariable("nome") String nome){
         return productService.getByName(nome);
     }
 

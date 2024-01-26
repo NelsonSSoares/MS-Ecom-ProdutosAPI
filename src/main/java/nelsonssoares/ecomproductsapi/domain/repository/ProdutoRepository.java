@@ -10,6 +10,7 @@ import java.util.List;
 
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Integer>{
-    @Query(value = "select * from produto p where p.nome_produto like :name%", nativeQuery = true)
-    List<Produto> findByName(@Param("name") String nome);
+    @Query(value = "select * from produto p where p.nome_produto like :nome%", nativeQuery = true)
+    List<Produto> findByName(@Param("nome") String nome);
 }
+
