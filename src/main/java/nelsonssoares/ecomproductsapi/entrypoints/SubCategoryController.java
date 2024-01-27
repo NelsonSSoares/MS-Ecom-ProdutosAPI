@@ -42,19 +42,19 @@ public class SubCategoryController {
 
 
 
-//    @Operation(summary = "Metodo para buscar subcategoria por ID de categoria", method = "POST")
-//    @ApiResponses(value = {
-//            @ApiResponse(responseCode = "201", description = "Usuário cadstrado com sucesso!!"),
-//            @ApiResponse(responseCode = "400", description = "Parametros inválidos!"),
-//            @ApiResponse(responseCode = "401", description = "Usuário não autenticado!"),
-//            @ApiResponse(responseCode = "403", description = "Não Autorizado!"),
-//            @ApiResponse(responseCode = "422", description = "Dados de requisição inválido"),
-//            @ApiResponse(responseCode = "500", description = "Erro ao atualizar usuário!"),
-//    })
-//    @GetMapping("cat/{id}")
-//    public ResponseEntity<SubCategoria> findByCategoria(@PathVariable("id") Integer id) {
-//        return subCategoryService.findBySubCategoryById(id);
-//    }
+    @Operation(summary = "Metodo para buscar subcategoria por ID de categoria", method = "GET")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Usuário cadstrado com sucesso!!"),
+            @ApiResponse(responseCode = "400", description = "Parametros inválidos!"),
+            @ApiResponse(responseCode = "401", description = "Usuário não autenticado!"),
+            @ApiResponse(responseCode = "403", description = "Não Autorizado!"),
+            @ApiResponse(responseCode = "422", description = "Dados de requisição inválido"),
+            @ApiResponse(responseCode = "500", description = "Erro ao atualizar usuário!"),
+    })
+    @GetMapping("/{id}")
+    public ResponseEntity<SubCategoria> findBySubCategoriaId(@PathVariable("id") Integer id) {
+        return subCategoryService.findBySubCategoryById(id);
+    }
 
 
 
@@ -87,6 +87,7 @@ public class SubCategoryController {
     @PutMapping(SUBCATEGORY_ID)
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<SubCategoria> updateSubCategoria(@PathVariable("id") Integer id,@RequestBody SubCategoriaDTO subCatDto) {
+
         return subCategoryService.updateSubCategory(id, subCatDto);
     }
 
