@@ -1,6 +1,4 @@
 spring:
-  profiles:
-    active: dev
   jpa:
     properties:
       hibernate:
@@ -17,4 +15,4 @@ server:
   error:
     include-stacktrace: never
     include-exception: 'false'
-  port: 8080
+  port: ${PORT:0} #8081
