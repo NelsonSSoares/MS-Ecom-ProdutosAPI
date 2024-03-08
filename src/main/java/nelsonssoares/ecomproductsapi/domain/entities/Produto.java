@@ -3,6 +3,7 @@ package nelsonssoares.ecomproductsapi.domain.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -44,9 +45,11 @@ public class Produto {
     @NotNull(message = "Data de cadastro deve ser informada")
     private LocalDate dataCadastro;
 
+    @PositiveOrZero(message = "Valor unitário deve ser maior que zero")
     @NotNull(message = "Valor unitário deve ser informado")
     private BigDecimal valorUnitario;
 
+    @PositiveOrZero(message = "Quantidade em estoque deve ser maior que zero")
     @NotNull(message = "Quantidade em estoque deve ser informada")
     private Integer quantidadeEstoque;
 
