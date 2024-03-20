@@ -10,8 +10,10 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static nelsonssoares.ecomproductsapi.commons.ControllerConstants.API_BASE_URL;
+import static nelsonssoares.ecomproductsapi.commons.ControllerConstants.ID;
 import static nelsonssoares.ecomproductsapi.commons.ProductConstants.*;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -46,5 +48,26 @@ public class ProductControllerTest {
                         .content(objectMapper.writeValueAsString(INVALID_PRODUCTDTO)))
                 .andExpect(status().isBadRequest());
     }
+
+    @Test
+    public void createProduct_withExistingProduct_shouldReturnConflict() throws Exception {
+
+        when(productService.save(VALID_PRODUCTDTO)).thenReturn(CONFLICT);
+        mockMvc.perform(post(API_BASE_URL)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(VALID_PRODUCTDTO)))
+                .andExpect(status().isConflict());
+    }
+
+    @Test
+    public void getProduct_withValidId_shouldReturnOk() throws Exception {
+
+        when(productService.getById(1)).thenReturn(VALID_PRODUCT_GETRESPONSE);
+        mockMvc.perform(get(API_BASE_URL + ID, 1)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(VALID_PRODUCT)))
+                .andExpect(status().isOk());
+    }
+
 
 }
