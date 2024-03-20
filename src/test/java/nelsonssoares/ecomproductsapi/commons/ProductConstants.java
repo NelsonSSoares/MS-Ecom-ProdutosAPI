@@ -23,5 +23,10 @@ public class ProductConstants {
 
     public static final ResponseEntity<Produto> VALID_PRODUCT_RESPONSE = ResponseEntity.status(HttpStatus.CREATED).body(VALID_PRODUCT);
 
+    public static final ResponseEntity<Produto> VALID_PRODUCT_GETRESPONSE = ResponseEntity.status(HttpStatus.OK).body(VALID_PRODUCT);
+
     public static final ResponseEntity<Produto> INVALID_PRODUCT_BADREQUESTRESPONSE = ResponseEntity.status(HttpStatus.BAD_REQUEST).body(INVALID_PRODUCT);
+
+public static final ResponseEntity<Produto> CONFLICT = ResponseEntity.status(HttpStatus.CONFLICT).body(VALID_PRODUCT);
+
 }
