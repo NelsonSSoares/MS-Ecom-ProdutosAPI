@@ -4,4 +4,5 @@ public class ControllerConstants {
 
     public static final String API_BASE_URL = "/ecommerce/produtos";
     public static final String ID = "/{id}";
+    public static final String NAME = "/name/{nome}";
 }
