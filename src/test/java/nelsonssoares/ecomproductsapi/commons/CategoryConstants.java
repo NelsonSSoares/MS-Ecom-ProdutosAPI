@@ -15,6 +15,8 @@ public class CategoryConstants {
 
     public static final ResponseEntity<Categoria> VALID_CATEGORY_RESPONSE = ResponseEntity.status(HttpStatus.CREATED).body(VALID_CATEGORY);
 
+    public static final ResponseEntity<Categoria> VALID_CATEGORY_CONFLICT = ResponseEntity.status(HttpStatus.CONFLICT).body(VALID_CATEGORY);
+
     public static final ResponseEntity<Categoria> VALID_CATEGORY_BADREQUEST = ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Categoria());
 
 

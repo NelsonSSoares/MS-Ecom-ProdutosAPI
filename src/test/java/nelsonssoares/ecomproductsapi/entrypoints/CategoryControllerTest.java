@@ -8,7 +8,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static nelsonssoares.ecomproductsapi.commons.CategoryConstants.*;
 import static nelsonssoares.ecomproductsapi.commons.ControllerConstants.API_BASE_URL;
@@ -48,4 +47,16 @@ public class CategoryControllerTest {
                         .content(objectMapper.writeValueAsString(INVALID_CATEGORYDTO)))
                 .andExpect(status().isBadRequest());
     }
+
+    @Test
+    public void createCategory_withExistingCategory_shouldReturnConflict() throws Exception {
+
+        when(categoryService.save(VALID_CATEGORYDTO)).thenReturn(VALID_CATEGORY_CONFLICT);
+        mockMvc.perform(post(API_BASE_URL+CATEGORY)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(VALID_CATEGORYDTO)))
+                .andExpect(status().isConflict());
+    }
+
+
 }
